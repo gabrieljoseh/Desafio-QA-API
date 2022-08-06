@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "4c1459f6-c678-4f4c-aa14-7347c3f0c4b0",
+		"name": "Testes API Desafio QA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22671875"
+	},
+	"item": [
+		{
+			"name": "Criar usuário Ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 201.Usuário cadastrado\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    pm.response.to.have.status(\"Created\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"A mensagem de email cadastrada foi validada com sucesso!\", () => {\r",
+							"    const frase = pm.response.json();\r",
+							"    pm.expect(frase.message).to.eql(\"Cadastro realizado com sucesso\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Gabriel Joseh\",\r\n  \"email\": \"gabrieljoseh@4i.br\",\r\n  \"password\": \"48/*-d8.d+\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar usuário Bad Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 400.Este email já está sendo usado\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"    pm.response.to.have.status(\"Bad Request\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"A mensagem de email já usado foi validada com sucesso!\", () => {\r",
+							"    const frase = pm.response.json();\r",
+							"    pm.expect(frase.message).to.eql(\"Este email já está sendo usado\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Gabriel Joseh\",\r\n  \"email\": \"gabrieljoseh@4i.br\",\r\n  \"password\": \"48/*-d8.d+\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos usuários Ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 200.Usuários listados\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"A mensagem de todos os usuários cadastrados foi validada com sucesso!\", () => {\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar o usuário pelo ID Ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 200.Usuário cadastrado\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"A mensagem de usuário cadastrado foi validada com sucesso!\", () => {\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/usuarios/fLVjj7cCGExZ3Rgv",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios",
+						"fLVjj7cCGExZ3Rgv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir usuário Ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"A mensagem de registro excluído foi validada com sucesso!\", () => {\r",
+							"    const frase = pm.response.json();\r",
+							"    pm.expect(frase.message).to.eql(\"Registro excluído com sucesso\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/usuarios/fLVjj7cCGExZ3Rgv",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios",
+						"fLVjj7cCGExZ3Rgv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar o usuário excluído Bad Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O código de estatus é 400.Usuário não encontrado\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"    pm.response.to.have.status(\"Bad Request\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Não há usuários para serem excluídos,mensagem validada!\", () => {\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/usuarios/DGqZsrovcGwFc10I5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios",
+						"DGqZsrovcGwFc10I5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
