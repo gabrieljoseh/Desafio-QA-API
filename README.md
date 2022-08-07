@@ -4,7 +4,7 @@ Este projeto tem como finalidade testar os seguintes cenários de teste **Criar 
 
 ### Download da pasta com os arquivos para teste
 
-É possível fazer o download da pasta .zip através do link https://github.com/gabrieljoseh/Desafio-QA-API.git ou também a pasta pode ser clonada através do comando abaixo, basta digitar esse comando no terminal da sua máquina:
+É possível fazer o download da pasta .zip através do link https://github.com/gabrieljoseh/Desafio-QA-API/archive/refs/heads/main.zip ou também a pasta pode ser clonada através do comando abaixo, basta digitar esse comando no terminal da sua máquina:
 ```
 git clone https://github.com/gabrieljoseh/Desafio-QA-API.git
 ```
