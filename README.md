@@ -82,7 +82,7 @@ git clone https://github.com/gabrieljoseh/Desafio-QA-API.git
 ![image](https://user-images.githubusercontent.com/110433514/183313167-8ac06376-ce6b-45d6-8c9f-4f106fa4cff3.png)
 ![image](https://user-images.githubusercontent.com/110433514/183313193-9f3c77d7-3874-44cd-a9d1-eca839de1d73.png)
 
-### Dessa forma temos a validação dos testes de forma automatizada utilizando o Postman.
+#### Dessa forma temos a validação dos testes de forma automatizada utilizando o Postman.
 
 
 
