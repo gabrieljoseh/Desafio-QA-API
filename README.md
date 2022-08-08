@@ -39,7 +39,7 @@ git clone https://github.com/gabrieljoseh/Desafio-QA-API.git
 
 ### Realizando teste através da Request
 
-- Para realizar o teste testando Request por Request, selecione uma Request e clique no botão **Send**, porém para cada Request é necessário verificar oque será testado, por exemplo para Criar um usuário com email diferente, verifique em **Body** se os dados estão preenchidos e se o email ainda não foi usado, caso todos os dados estejam corretos após executar o teste clicando em **Send** teremos o seguinte:
+- Para realizar o teste testando Request por Request, selecione uma Request e clique no botão **Send**, porém para cada Request é necessário verificar o que será testado, por exemplo para **Criar um usuário com email diferente**, verifique em **Body** se os dados estão preenchidos e se o email ainda não foi usado, caso todos os dados estejam corretos após executar o teste clicando em **Send** teremos o seguinte:
 
 ![image](https://user-images.githubusercontent.com/110433514/183310897-951de492-94bc-497d-95a5-ec03bab9d983.png)
 
